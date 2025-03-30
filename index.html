@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Wellness Plan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Daily Maintenance Plan</h1>
+    
+    <form id="wellnessForm">
+      <label>
+        What I look like when I’m well:
+        <textarea id="wellnessLook" placeholder="Describe how you feel and act when you're well..."></textarea>
+      </label>
+
+      <label>
+        Daily habits that keep me well:
+        <textarea id="dailyHabits" placeholder="Write about your helpful habits..."></textarea>
+      </label>
+
+      <label>
+        Things I need to do regularly:
+        <textarea id="routineTasks" placeholder="Like meds, sleep, meals, check-ins..."></textarea>
+      </label>
+
+      <button type="button" onclick="savePlan()">💾 Save Plan</button>
+    </form>
+
+    <div id="savedPlan" class="saved-section">
+      <h2>Saved Plan:</h2>
+      <p><strong>When I’m well:</strong> <span id="displayWellnessLook"></span></p>
+      <p><strong>Daily habits:</strong> <span id="displayDailyHabits"></span></p>
+      <p><strong>Routine tasks:</strong> <span id="displayRoutineTasks"></span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

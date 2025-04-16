@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Feel-Good Toolkit</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 My Feel-Good Toolkit</h1>
+    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 1rem;">
+      Add your own comforting, grounding, or joyful ideas below. 💕
+    </p>
+
+    <div class="notebook-section">
+      <div id="toolkitList"></div>
+
+      <div style="margin-top: 2rem;">
+        <input type="text" id="newIdea" placeholder="Add your own feel-good idea..." />
+        <button onclick="addIdea()">➕ Add</button>
+      </div>
+    </div>
+
+    <a href="wellnessPlan.html" class="launch-button">← Back to Wellness Plan</a>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="index.html" class="launch-button">🏠 Home</a>
+    <a href="wellnessPlan.html" class="launch-button">📋 My Wellness Plan</a>
+    <a href="toolkit.html" class="launch-button">🧰 My Feel-Good Toolkit</a>
+    <a href="support.html" class="launch-button">🧰 Support Group</a>
+
+  </div>
+  
+  <script>
+  let toolkit = JSON.parse(localStorage.getItem("feelGoodToolkit")) || [];
+
+  function renderToolkit() {
+    const listDiv = document.getElementById("toolkitList");
+    listDiv.innerHTML = "";
+    toolkit.forEach((idea, index) => {
+      const line = document.createElement("div");
+      line.classList.add("toolkit-line");
+      line.innerHTML = `<input type="checkbox" id="idea-${index}"> <span>${idea}</span>`;
+      listDiv.appendChild(line);
+    });
+  }
+
+  function addIdea() {
+    const newIdeaInput = document.getElementById("newIdea");
+    const newIdea = newIdeaInput.value.trim();
+    if (newIdea !== "") {
+      toolkit.push(newIdea);
+      localStorage.setItem("feelGoodToolkit", JSON.stringify(toolkit));
+      newIdeaInput.value = "";
+      renderToolkit();
+    }
+  }
+
+  window.onload = renderToolkit;
+  </script>
+</body>
+</html>

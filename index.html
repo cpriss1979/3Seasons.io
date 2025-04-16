@@ -2,41 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Wellness Plan</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to My Wellness Plan</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container">
-    <h1>Daily Maintenance Plan</h1>
+    <h1>📘 My Wellness Plan</h1>
+    <p style="font-size: 1.2rem; color: #073b4c;">
+      Welcome! This is your cozy space to reflect, plan, and care for your mental wellness. 
+      Here, you can build a custom plan that helps you recognize your moods, stay grounded, and bounce back when life gets hard.
+    </p>
+
+    <p style="font-size: 1.1rem; margin-top: 2rem;">
+      Click below to start or continue building your plan. 💖
+    </p>
+
+
+
+    <a href="toolkit.html" class="launch-button">🧰 Open My Feel-Good Toolkit</a>
+
+
+    <a href="wellnessPlan.html" class="launch-button">✨ Go to My Wellness Plan ✨</a>
     
-    <form id="wellnessForm">
-      <label>
-        What I look like when I’m well:
-        <textarea id="wellnessLook" placeholder="Describe how you feel and act when you're well..."></textarea>
-      </label>
-
-      <label>
-        Daily habits that keep me well:
-        <textarea id="dailyHabits" placeholder="Write about your helpful habits..."></textarea>
-      </label>
-
-      <label>
-        Things I need to do regularly:
-        <textarea id="routineTasks" placeholder="Like meds, sleep, meals, check-ins..."></textarea>
-      </label>
-
-      <button type="button" onclick="savePlan()">💾 Save Plan</button>
-    </form>
-
-    <div id="savedPlan" class="saved-section">
-      <h2>Saved Plan:</h2>
-      <p><strong>When I’m well:</strong> <span id="displayWellnessLook"></span></p>
-      <p><strong>Daily habits:</strong> <span id="displayDailyHabits"></span></p>
-      <p><strong>Routine tasks:</strong> <span id="displayRoutineTasks"></span></p>
-    </div>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

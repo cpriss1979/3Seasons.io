@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support People</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>💞 My Support</h1>
+    <p style="text-align: center;">These are the people I trust and can reach out to when I need help, comfort, or grounding.</p>
+
+    <form id="supportForm">
+      <table class="support-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone #</th>
+            <th>Relationship</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        
+
+            <td><input type="text" name="name${i}" /></td>
+            <td><input type="text" name="relationship${i}" /></td>
+            <td><input type="text" name="phone${i}" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" onclick="saveSupport()">💾 Save Support People</button>
+    </form>
+
+    <div class="saved-section">
+      <h2>📋 My Saved Support List</h2>
+      <ul id="savedSupportList"></ul>
+    </div>
+
+    
+
+  <div class="nav-buttons">
+    <a href="index.html" class="launch-button">🏠 Home</a>
+    <a href="wellnessPlan.html" class="launch-button">📋 My Wellness Plan</a>
+    <a href="toolkit.html" class="launch-button">🧰 My Feel-Good Toolkit</a>
+    <a href="support.html" class="launch-button">🧰 My Support</a>
+
+  </div>
+
+  <script>
+    function saveSupport() {
+      const supportList = [];
+
+      for (let i = 0; i < 10; i++) {
+        const name = document.querySelector(`[name='name${i}']`).value;
+        const relationship = document.querySelector(`[name='relationship${i}']`).value;
+        const phone = document.querySelector(`[name='phone${i}']`).value;
+        const notes = document.querySelector(`[name='notes${i}']`).value;
+
+        if (name || relationship || phone || notes) {
+          supportList.push({ name, relationship, phone, notes });
+        }
+      }
+
+      localStorage.setItem("supportPeople", JSON.stringify(supportList));
+      displaySupport();
+    }
+
+    function displaySupport() {
+      const list = JSON.parse(localStorage.getItem("supportPeople")) || [];
+      const ul = document.getElementById("savedSupportList");
+      ul.innerHTML = "";
+
+      list.forEach((person, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${person.name}</strong> (${person.relationship}) – ${person.phone}<br/><em>${person.notes}</em>`;
+        ul.appendChild(li);
+      });
+    }
+
+    window.onload = displaySupport;
+  </script>
+</body>
+</html>
